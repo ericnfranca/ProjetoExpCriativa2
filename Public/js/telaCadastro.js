@@ -6,7 +6,7 @@ $(document).ready(function(){
         if (verificarTudo() == true) {
             alert("Usuario cadastrado.")
             fLocalComunicaServidor();
-            limparInputs();
+            //limparInputs();
 
         } else {
             alert("Erro ao cadastrar, reveja os dados.");
