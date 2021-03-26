@@ -153,7 +153,7 @@ function fLocalComunicaServidor() {
         url: "../Public/php/config.php",
         data: {
             nome: $("#nomeCompleto").val(),
-            data_nascimento: $("#dataNascimento").val()
+            sobrenome: $("#cpf").val()
         },
         success: function(retorno) {
 
