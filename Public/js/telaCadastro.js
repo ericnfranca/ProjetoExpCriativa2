@@ -5,9 +5,8 @@ $(document).ready(function(){
         verificarVazios();
         if (verificarTudo() == true) {
             alert("Usuario cadastrado.")
-            limparInputs();
             fLocalComunicaServidor();
-
+            limparInputs();
 
         } else {
             alert("Erro ao cadastrar, reveja os dados.");
@@ -23,6 +22,8 @@ function ColocarMascara() {
     $("#email").inputmask("email");
     $("#dataNascimento").inputmask("99/99/9999");
     $("#numCartao").inputmask("9999 9999 9999 9999");
+    $("#validadeCartao").inputmask("99/99");
+    $("#codCartao").inputmask("999");
 }
 
 function verificarVazios() {
@@ -30,10 +31,10 @@ function verificarVazios() {
     var dataNascimento = $('#dataNascimento').val();
     var email = $('#email').val();
     var senha = $('#senha').val();
-    var ConfSenha = $('#ConfSenha').val();
+    var ConfSenha = $('#confSenha').val();
     var numCartao = $('#numCartao').val();
     var validadeCartao = $('#validadeCartao').val();
-    var CodCartao = $('#CodCartao').val();
+    var CodCartao = $('#codCartao').val();
     var nomeTitular = $('#nomeTitular').val();
     var cpf = $('#cpf').val();
 
@@ -96,10 +97,10 @@ function limparInputs() {
     $('#dataNascimento').val("");
     $('#email').val("");
     $('#senha').val("");
-    $('#ConfSenha').val("");
+    $('#confSenha').val("");
     $('#numCartao').val("");
     $('#validadeCartao').val("");
-    $('#CodCartao').val("");
+    $('#codCartao').val("");
     $('#nomeTitular').val("");
     $('#cpf').val("");
 }
@@ -109,10 +110,10 @@ function verificarTudo() {
     var dataNascimento = $('#dataNascimento').val();
     var email = $('#email').val();
     var senha = $('#senha').val();
-    var ConfSenha = $('#ConfSenha').val();
+    var ConfSenha = $('#confSenha').val();
     var numCartao = $('#numCartao').val();
     var validadeCartao = $('#validadeCartao').val();
-    var CodCartao = $('#CodCartao').val();
+    var CodCartao = $('#codCartao').val();
     var nomeTitular = $('#nomeTitular').val();
     var cpf = $('#cpf').val();
 
@@ -130,7 +131,7 @@ function verificarTudo() {
 
 function confirmarSenha() {
     var senha = $('#senha').val()
-    var ConfSenha = $('#ConfSenha').val()
+    var ConfSenha = $('#confSenha').val()
     
     if (senha != "" & ConfSenha != "" && senha == ConfSenha) {
         $('#labelSenha').css({"color": ""})
@@ -138,7 +139,7 @@ function confirmarSenha() {
         return true
     } else if (senha != confirmarSenha){
         $('#senha').css({"color": "#FA5858"})
-        $('#ConfSenha').css({"color": "#FA5858"})
+        $('#confSenha').css({"color": "#FA5858"})
         $('#labelSenha').css({"color": "#FA5858"})
         $("#labelConfSenha").css({"color": "#FA5858"})
         return false
@@ -152,8 +153,15 @@ function fLocalComunicaServidor() {
         dataType: "json",
         url: "../Public/php/config.php",
         data: {
-            nome: $("#nomeCompleto").val(),
-            sobrenome: $("#cpf").val()
+            nome_completo: $("#nomeCompleto").val(),
+            data_nascimento: $("#dataNascimento").val(),
+            email: $("#email").val(),
+            senha: $("#senha").val(),
+            numero_cartao: $("#numCartao").val(),
+            validade_cartao: $("#validadeCartao").val(),
+            codigo_seguranca: $("#codCartao").val(),
+            nome_titular: $("#nomeTitular").val(),
+            cpf: $("#cpf").val(),
         },
         success: function(retorno) {
 

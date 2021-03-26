@@ -1,48 +1,23 @@
 <?php
-$conexao = mysqli_connect("localhost", "root", "", "bancoexpcriativa");
+$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
+
+
+$nome_completo = $_POST["nome_completo"];
+$data_nascimento = $_POST["data_nascimento"];
+$email = $_POST["email"];
+$senha = $_POST["senha"];
+$numero_cartao = $_POST["numero_cartao"];
+$validade_cartao = $_POST["validade_cartao"];
+$codigo_seguranca = $_POST["codigo_seguranca"];
+$nome_titular = $_POST["nome_titular"];
+$cpf = $_POST["cpf"];
 
 
 
-// define('DB_SERVER', 'localhost');
-
-// define('DB_USERNAME', 'root');
-
-// define('DB_PASSWORD', '');
-
-// define('DB_NAME', 'projetoexpcriativa2');
-
- 
+mysqli_query($conexao, "INSERT INTO pessoa(nome_completo, data_nascimento, email, senha, numero_cartao, validade_cartao, codigo_seguranca, nome_titular, cpf) VALUES 
+                ('$nome_completo', '$data_nascimento', '$email', '$senha', '$numero_cartao', '$validade_cartao', '$codigo_seguranca', '$nome_titular', '$cpf')");
 
 
-
-// $conexao = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-
-// $resultado = mysqli_query($conexao, "<query>");
-
-$nome = $_POST["nome"];
-$sobrenome = $_POST["sobrenome"];
-
-
-mysqli_query($conexao, "INSERT INTO pessoa(nome, sobrenome) VALUES ('$nome', '$sobrenome')");
-
- 
-
-// Check connection
-
-// if($conexao === false){
-
-//     die("ERROR: Não foi possivel conectar. " . mysqli_connect_error());
-
-// }
-
-// $nome = $_POST["nome"];
-// $data_nascimento = $_POST["sobrenome"];
-
-// echo $nome." ".$data_nascimento;
-
-
-// mysqli_query($conexao, "INSERT INTO pessoa(nome_completo, data_nascimento, email, senha, numero_cartao, validade_cartao, codigo_seguranca, nome_titular, cpf ) VALUES ()");
 
 mysqli_close($conexao);
 
