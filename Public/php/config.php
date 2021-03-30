@@ -14,8 +14,8 @@ $cpf = $_POST["cpf"];
 
 
 
-mysqli_query($conexao, "INSERT INTO pessoa(nome_completo, data_nascimento, email, senha, numero_cartao, validade_cartao, codigo_seguranca, nome_titular, cpf) VALUES 
-                ('$nome_completo', '$data_nascimento', '$email', '$senha', '$numero_cartao', '$validade_cartao', '$codigo_seguranca', '$nome_titular', '$cpf')");
+mysqli_query($conexao, "INSERT INTO pessoa(nome_completo, data_nascimento, email, validacao_email, senha_hash_sha256, numero_cartao, validade_cartao, codigo_seguranca, nome_titular, cpf) VALUES 
+                ('$nome_completo', '$data_nascimento', '$email', 'n', '$senha', '$numero_cartao', '$validade_cartao', '$codigo_seguranca', '$nome_titular', '$cpf')");
 
 
 

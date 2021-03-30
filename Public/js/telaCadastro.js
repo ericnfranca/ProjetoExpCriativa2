@@ -5,6 +5,7 @@ $(document).ready(function(){
         verificarVazios();
         if (verificarTudo() == true) {
             alert("Usuario cadastrado.")
+            hashMD5();
             fLocalComunicaServidor();
             //limparInputs();
 
@@ -146,8 +147,13 @@ function confirmarSenha() {
     }
 
 }
-
+function hashMD5(){    
+    var senha_hash_md5 = $.MD5($('#senha').val());
+    return(senha_hash_md5);
+    
+}
 function fLocalComunicaServidor() {
+    var senha_hash = hashMD5();
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -156,7 +162,7 @@ function fLocalComunicaServidor() {
             nome_completo: $("#nomeCompleto").val(),
             data_nascimento: $("#dataNascimento").val(),
             email: $("#email").val(),
-            senha: $("#senha").val(),
+            senha: senha_hash.toString(),
             numero_cartao: $("#numCartao").val(),
             validade_cartao: $("#validadeCartao").val(),
             codigo_seguranca: $("#codCartao").val(),
