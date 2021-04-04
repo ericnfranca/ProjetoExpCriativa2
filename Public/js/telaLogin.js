@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     $('#BotaoAcessar').click(function() {
         verificarVazios();
+        fLocalComunicaServidor();
          //limparInputs();
     })
     $('#bBotaoCriar').click(function() {
@@ -43,7 +44,7 @@ function hashMD5(){
 function fLocalComunicaServidor() {
     var senha_hash = hashMD5();
     $.ajax({
-        type: "GET",
+        type: "POST",
         dataType: "json",
         url: "../Public/php/configLogin.php",
         data: {
@@ -51,7 +52,11 @@ function fLocalComunicaServidor() {
             senha: senha_hash.toString(),
         },
         success: function(retorno) {
-
+            if (retorno == "s"){ 
+                alert("Usuário Cadastrado");
+            }else{
+                alert("Usuário não cadastrado");
+            }
         }
     })
 }
