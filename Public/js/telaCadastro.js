@@ -7,6 +7,7 @@ $(document).ready(function(){
             alert("Usuario cadastrado.")
             hashMD5();
             fLocalComunicaServidor();
+            fLocalEnviaEmail();
             //limparInputs();
 
         } else {
@@ -171,6 +172,19 @@ function fLocalComunicaServidor() {
         },
         success: function(retorno) {
 
+        }
+    })
+}
+
+function fLocalEnviaEmail(){
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../Public/php/enviar-email.php",
+        data: {
+            email: $("#email").val(),
+        },
+        success: function(retorno) {
         }
     })
 }
