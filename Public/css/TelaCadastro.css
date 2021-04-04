@@ -67,3 +67,11 @@ p {
 #divBotao{
     margin-bottom: 3vh;
 }
+.div-colored{
+    background-color: #dee2ff;
+ }
+ .div-login h1{
+    text-align: center;
+    padding-top: 2px;
+    margin-bottom: 0px;
+}
