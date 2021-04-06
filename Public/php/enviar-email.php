@@ -8,7 +8,23 @@ require '../PHPMailer/PHPMailerAutoload.php';
 
 $tituloEmail = "Confirmação de Cadastro";
 
-$message = 'E-mail cadastrado com sucesso!';
+//$message = 'Para confirmar o cadastro, clique no link abaixo <br> http://localhost/git/ProjetoExpCriativa2/Views/ConfirmacaoEmail.html';
+
+$message = "<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+</head>
+
+<body>
+
+            <div id='email' value='$email' hidden>
+            </div>
+
+            <a>Para continuar o cadastro clique <a  href='http://localhost/git/ProjetoExpCriativa2/Views/ConfirmacaoEmail.html'>aqui</a>.</a>
+
+</body>
+</html>";
 
 $mail= new PHPMailer;
 $mail->IsSMTP(); 
