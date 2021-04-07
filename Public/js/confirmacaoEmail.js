@@ -4,7 +4,9 @@ $(document).ready(function(){
     $('#bEmail').click(function() {
         verificarVazios();
         fLocalComunicaServidorEmail();
-            
+     //   if (fLocalComunicaServidorEmail() = "s"){
+       //     $('#alertBootstrapSuccessEmail').show();   
+       // } 
     });
     
 
@@ -16,9 +18,10 @@ function ColocarMask() {
 
 function verificarVazios() {
     var email = $('#confirmacaoEmail').val();
-   
+
     if (email == '') {
         $("#labelEmail").css({"color": "#FA5858"})
+        $('#alertBootstrapErrorVazio').show();
     } else {
         $('#labelEmail').css({"color": ""})
     }
@@ -33,9 +36,9 @@ function fLocalComunicaServidorEmail(){
         },
         success: function(retorno) {
             if(retorno == "s"){
-                alert("E-mail validado com sucesso, prossiga para o login");
+                $('#alertBootstrapSuccessEmail').show();
             }else{
-                alert("Verifique o E-mail digitado");
+                $('#alertBootstrapErrorEmail').show();
             }
 
         }

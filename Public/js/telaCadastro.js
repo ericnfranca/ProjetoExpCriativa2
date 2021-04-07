@@ -4,14 +4,15 @@ $(document).ready(function(){
     $('#divBotao').click(function() {
         verificarVazios();
         if (verificarTudo() == true) {
-            alert("Usuario cadastrado.")
-            hashMD5();
+            $('#alertBootstrapSuccess').show();
+            hashMD5();    
             fLocalComunicaServidor();
             fLocalEnviaEmail();
             //limparInputs();
 
+
         } else {
-            alert("Erro ao cadastrar, reveja os dados.");
+            $('#alertBootstrapError').show();
         }
     })
     
@@ -132,8 +133,8 @@ function verificarTudo() {
 }
 
 function confirmarSenha() {
-    var senha = $('#senha').val()
-    var ConfSenha = $('#confSenha').val()
+    var senha = $('#senha').val();
+    var ConfSenha = $('#confSenha').val();
     
     if (senha != "" & ConfSenha != "" && senha == ConfSenha) {
         $('#labelSenha').css({"color": ""})
@@ -148,6 +149,9 @@ function confirmarSenha() {
     }
 
 }
+
+
+
 function hashMD5(){    
     var senha_hash_md5 = $.MD5($('#senha').val());
     return(senha_hash_md5);
