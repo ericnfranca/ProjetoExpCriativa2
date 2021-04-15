@@ -1,6 +1,55 @@
 $(document).ready(function(){
     ColocarMascara();
     
+    $("#email").on("keyup", function () {
+        labelEmail();
+    })
+
+    $("#dataNascimento").on("keyup", function () {
+        labelDataNascimento();
+    })
+
+    $("#cpf").on("keyup", function () {
+        labelCpf();
+    })
+
+    $("#numCartao").on("keyup", function () {
+        labelNumCartao();
+    })
+
+    $("#validadeCartao").on("keyup", function () {
+        labelValidadeCartao();
+    })
+
+    $("#codCartao").on("keyup", function () {
+        labelCodCartao();
+    })
+
+    $("#email").on("keydown", function () {
+        labelEmail();
+    })
+
+    $("#dataNascimento").on("keydown", function () {
+        labelDataNascimento();
+    })
+
+    $("#cpf").on("keydown", function () {
+        labelCpf();
+    })
+
+    $("#numCartao").on("keydown", function () {
+        labelNumCartao();
+    })
+
+    $("#validadeCartao").on("keydown", function () {
+        labelValidadeCartao();
+    })
+
+    $("#codCartao").on("keydown", function () {
+        labelCodCartao();
+    })
+
+    
     $('#divBotao').click(function() {
         verificarVazios();
         if (verificarTudo() == true) {
@@ -18,6 +67,72 @@ $(document).ready(function(){
     
 
 });
+
+function labelEmail() {
+    var emailEscrito = $("#email").val()
+    if (emailEscrito != "") {
+        $("#divEmail").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divEmail").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divEmail").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divEmail").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
+
+function labelDataNascimento() {
+    var data = $("#dataNascimento").val()
+    if (data != "") {
+        $("#divData").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divData").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divData").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divData").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
+
+function labelCpf() {
+    var cpf = $("#cpf").val()
+    if (cpf != "") {
+        $("#divCpf").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divCpf").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divCpf").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divCpf").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
+
+function labelNumCartao() {
+    var numCartao = $("#numCartao").val()
+    if (numCartao != "") {
+        $("#divNumCartao").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divNumCartao").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divNumCartao").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divNumCartao").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
+
+function labelValidadeCartao() {
+    var validadeCartao = $("#validadeCartao").val()
+    if (validadeCartao != "") {
+        $("#divValidadeCartao").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divValidadeCartao").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divValidadeCartao").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divValidadeCartao").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
+
+function labelCodCartao() {
+    var codCartao = $("#codCartao").val()
+    if (codCartao != "") {
+        $("#divCodCartao").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divCodCartao").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divCodCartao").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divCodCartao").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
 
 var token = gerarToken();
 
