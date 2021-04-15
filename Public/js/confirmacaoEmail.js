@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    ColocarMask();
     
     $('#bEmail').click(function() {
         verificarVazios();
@@ -12,27 +11,23 @@ $(document).ready(function(){
 
 });
 
-function ColocarMask() {
-    $('#confirmacaoEmail').inputmask("email");
-}
-
 function verificarVazios() {
-    var email = $('#confirmacaoEmail').val();
+    var token = $('#confirmacaoToken').val();
 
-    if (email == '') {
-        $("#labelEmail").css({"color": "#FA5858"})
+    if (token == '') {
+        $("#labelToken").css({"color": "#FA5858"})
         $('#alertBootstrapErrorVazio').show();
     } else {
-        $('#labelEmail').css({"color": ""})
+        $('#labelToken').css({"color": ""})
     }
 }
-function fLocalComunicaServidorEmail(){
+function fLocalComunicaServidorEmail() {
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "../Public/php/confirmacaoEmail.php",
         data: {
-            confirmacao_email: $("#confirmacaoEmail").val(),
+            confirmacao_token: $("#confirmacaoToken").val(),
         },
         success: function(retorno) {
             if(retorno == "s"){

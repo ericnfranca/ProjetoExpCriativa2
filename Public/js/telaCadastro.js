@@ -19,6 +19,13 @@ $(document).ready(function(){
 
 });
 
+var token = gerarToken();
+
+function gerarToken() {
+    var token = Math.random().toString(16).substr(2);
+    return token;
+}
+
 
 function ColocarMascara() {
     $("#cpf").inputmask("999.999.999-99");
@@ -150,14 +157,14 @@ function confirmarSenha() {
 
 }
 
-
-
 function hashMD5(){    
     var senha_hash_md5 = $.MD5($('#senha').val());
     return(senha_hash_md5);
     
 }
+
 function fLocalComunicaServidor() {
+    //var token = gerarToken();
     var senha_hash = hashMD5();
     $.ajax({
         type: "POST",
@@ -173,6 +180,7 @@ function fLocalComunicaServidor() {
             codigo_seguranca: $("#codCartao").val(),
             nome_titular: $("#nomeTitular").val(),
             cpf: $("#cpf").val(),
+            token: token.toString(),
         },
         success: function(retorno) {
 
@@ -187,6 +195,7 @@ function fLocalEnviaEmail(){
         url: "../Public/php/enviar-email.php",
         data: {
             email: $("#email").val(),
+            token: token.toString(),
         },
         success: function(retorno) {
         }
