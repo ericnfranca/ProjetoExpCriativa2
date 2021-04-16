@@ -20,10 +20,10 @@ $message = "<!DOCTYPE html>
 
             <div id='email' value='$email' hidden>
             </div>
-            <div> Seu token é: 
-                <a>Seu token é:'$token'</a>
+            <div> 
+                <a>Seu token é: '$token'</a>
             </div>
-            <a>Para continuar o cadastro clique <a  href='http://localhost/Experiencia%20Criativa/Projeto/ProjetoExpCriativa2/Views/ConfirmacaoEmail.html'>aqui</a>.</a>
+            <a>Para continuar o cadastro clique <a  href='http://localhost/git/ProjetoExpCriativa2/Views/ConfirmacaoEmail.html'>aqui</a>.</a>
 
 </body>
 </html>";
