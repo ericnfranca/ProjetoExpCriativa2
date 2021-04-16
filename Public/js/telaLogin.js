@@ -76,7 +76,7 @@ function fLocalComunicaServidor() {
             if (retorno == "s"){ 
                 alert("Usuário Cadastrado");
             }else{
-                alert("Usuário não cadastrado");
+                $('#alertBootstrapErrorLog').show();
             }
         }
     })

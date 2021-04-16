@@ -69,7 +69,7 @@ function fLocalComunicaServidor() {
                 fLocalComunicaServidorEnviaEmail();
                 alert("enviamos email");
             }else{
-                alert("Usuário não cadastrado");
+                $('#alertBootstrapErrorRed').show();
             }
         }
     })
