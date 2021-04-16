@@ -1,11 +1,11 @@
 $(document).ready(function(){
     
     $('#bEmail').click(function() {
-        verificarVazios();
-        fLocalComunicaServidorEmail();
-     //   if (fLocalComunicaServidorEmail() = "s"){
-       //     $('#alertBootstrapSuccessEmail').show();   
-       // } 
+        verificarVazios(); 
+        if (verificarVazios() != false){
+            fLocalComunicaServidorEmail();   
+            //$('#alertBootstrapSuccessEmail').show();
+        } 
     });
     
 
@@ -17,6 +17,7 @@ function verificarVazios() {
     if (token == '') {
         $("#labelToken").css({"color": "#FA5858"})
         $('#alertBootstrapErrorVazio').show();
+        return false
     } else {
         $('#labelToken').css({"color": ""})
     }
