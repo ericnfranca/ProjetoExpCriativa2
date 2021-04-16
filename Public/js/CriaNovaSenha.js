@@ -1,9 +1,8 @@
 $(document).ready(function(){
 
     $('#bBotaoCriaSenha').click(function() {
-        confirmarSenha();
         verificarVazios();
-        if (confirmarSenha() == true){
+        if (confirmarSenha() == true && verificarVazios() !=false){
             fLocalComunicaServidor();
             //limparInputs();
         }
@@ -22,16 +21,19 @@ function verificarVazios() {
 
     if (senha == '') {
         $("#labelCriaSenha").css({"color": "#FA5858"})
+        return false;
     } else {
         $('#labelCriaSenha').css({"color": ""})
     }
     if (confirmarSenha == '') {
         $("#labelConfirmaCriaSenha").css({"color": "#FA5858"})
+        return false;
     } else {
         $('#labelConfirmaCriaSenha').css({"color": ""})
     }
     if (confirmarToken == '') {
         $("#labelConfirmaTokenRed").css({"color": "#FA5858"})
+        return false;
     } else {
         $('#labelConfirmaTokenRed').css({"color": ""})
     }

@@ -1,15 +1,34 @@
 $(document).ready(function(){
     ColocarMascara();
 
+    $("#email").on("keyup", function () {
+        labelEmail();
+    })
+    
     $('#BotaoAcessar').click(function() {
         verificarVazios();
-        fLocalComunicaServidor();
+        if(verificarVazios() != false){
+            fLocalComunicaServidor();
+        }else{
+            $('#alertBootstrapErrorLog').show();
+        }
          //limparInputs();
     })
     $('#bBotaoCriar').click(function() {
         window.location.href = ".."
     })
 });
+
+function labelEmail() {
+    var emailEscrito = $("#email").val()
+    if (emailEscrito != "") {
+        $("#divEmailLogin").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divEmailLogin").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divEmailLogin").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divEmailLogin").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
 
 function ColocarMascara() {
     $("#email").inputmask("email");
@@ -21,11 +40,13 @@ function verificarVazios() {
 
     if (email == '') {
         $("#labelEmail").css({"color": "#FA5858"})
+        return false;
     } else {
         $('#labelEmail').css({"color": ""})
     }
     if (senha == '') {
         $("#labelSenha").css({"color": "#FA5858"})
+        return false;
     } else {
         $('#labelSenha').css({"color": ""})
     }

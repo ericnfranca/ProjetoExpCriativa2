@@ -1,15 +1,34 @@
 $(document).ready(function(){
     ColocarMascara();
 
+    $("#emailRed").on("keyup", function () {
+        labelEmail();
+    })
+
     $('#bBotaoRedefineSenha').click(function() {
         verificarVazios();
-        fLocalComunicaServidor();
+        if(verificarVazios() != false){
+            fLocalComunicaServidor();
+        }else{
+            $('#alertBootstrapErrorRed').show();
+        }
         //limparInputs();
     })
     $('#bBotaoVoltar').click(function() {
         window.location.href = '../Views/TelaLogin.html'
     })
 });
+
+function labelEmail() {
+    var emailEscrito = $("#emailRed").val()
+    if (emailEscrito != "") {
+        $("#divEmailRed").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+        $("#divEmailRed").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+    } else {
+        $("#divEmailRed").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
+        $("#divEmailRed ").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+    }
+}
 
 function ColocarMascara() {
     $("#emailRed").inputmask("email");
@@ -20,6 +39,7 @@ function verificarVazios() {
 
     if (email == '') {
         $("#labelEmail").css({"color": "#FA5858"})
+        return false
     } else {
         $('#labelEmail').css({"color": ""})
     }
