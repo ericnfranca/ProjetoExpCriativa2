@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     ColocarMascara();
 
     $("#novoNumero").on("keyup", function () {
@@ -27,9 +27,8 @@ $(document).ready(function(){
 
     $('#bMudaDadosCartao').click(function() {
         verificarVazios();
-        if (verificarVazios() !=false){
+        if (verificarTudo() == true){
             fLocalComunicaServidor();
-            //limparInputs();
         }
         
     });
@@ -39,7 +38,7 @@ $(document).ready(function(){
 });
 
 function labelnovoNumero() {
-    var numCartao = $("#novoNumero").val()
+    var numCartao = $("#novoNumero").val();
     if (numCartao != "") {
         $("#divNumCartaoNOVO").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
         $("#divNumCartaoNOVO").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
@@ -50,7 +49,7 @@ function labelnovoNumero() {
 }
 
 function labelnovoValidade() {
-    var validadeCartao = $("#novoValidade").val()
+    var validadeCartao = $("#novoValidade").val();
     if (validadeCartao != "") {
         $("#divValCartaoNOVO").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
         $("#divValCartaoNOVO").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
@@ -61,7 +60,7 @@ function labelnovoValidade() {
 }
 
 function labelnovoCod() {
-    var codCartao = $("#novoCod").val()
+    var codCartao = $("#novoCod").val();
     if (codCartao != "") {
         $("#divCodCartaoNOVO").removeClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
         $("#divCodCartaoNOVO").addClass("mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty");
@@ -87,31 +86,26 @@ function verificarVazios() {
 
     if (numero == '') {
         $("#labelnovoNumero").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelnovoNumero').css({"color": ""})
     }
     if (validade == '') {
         $("#labelnovoValidade").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelnovoValidade').css({"color": ""})
     }
     if (codigo == '') {
         $("#labelnovoCod").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelnovoCod').css({"color": ""})
     }
     if (nome == '') {
         $("#labelnovoNome").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelnovoNome').css({"color": ""})
     }
     if (confirmaToken == '') {
         $("#labelconfirmaTokenCar").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelconfirmaTokenCar').css({"color": ""})
     }
@@ -132,6 +126,11 @@ function verificarTudo() {
     var codigo = $('#novoCod').val();
     var nome = $('#novoNome').val();
     var confirmaToken = $('#confirmaTokenCar').val();
+
+    if (numero == "" || validade == "" || codigo == "" || nome == "" || confirmaToken == "") {
+        return false
+    }
+    return true;
 }
 
 function fLocalComunicaServidor() {
