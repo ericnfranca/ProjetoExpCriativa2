@@ -9,6 +9,10 @@ body{
     color: black;
     text-align: center;
 }
+#navbar{
+    height: 100%
+}
+
 .div-2-Menu{
     background-color: #ffcc00;
     width: 100%;
@@ -74,4 +78,8 @@ p {
     text-align: center;
     padding-top: 2px;
     margin-bottom: 0px;
+}
+
+.dropdown-menu{
+    float: right;
 }
