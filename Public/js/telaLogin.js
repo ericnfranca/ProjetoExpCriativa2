@@ -5,9 +5,13 @@ $(document).ready(function(){
         labelEmail();
     })
     
+    $("#email").on("keydown", function () {
+        labelEmail();
+    })
+    
     $('#BotaoAcessar').click(function() {
         verificarVazios();
-        if(verificarVazios() != false){
+        if(verificarTudo() == true){
             fLocalComunicaServidor();
         }else{
             $('#alertBootstrapErrorLog').show();
@@ -40,16 +44,24 @@ function verificarVazios() {
 
     if (email == '') {
         $("#labelEmail").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelEmail').css({"color": ""})
     }
     if (senha == '') {
         $("#labelSenha").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelSenha').css({"color": ""})
     }
+}
+
+function verificarTudo() {
+    var email = $('#email').val();
+    var senha = $('#senha').val();
+    
+    if (email == "" || senha == "" ) {
+        return false
+    }
+    return true;
 }
 
 function limparInputs() {

@@ -2,9 +2,11 @@ $(document).ready(function(){
 
     $('#bBotaoCriaSenha').click(function() {
         verificarVazios();
-        if (confirmarSenha() == true && verificarVazios() !=false){
+        if (verificarTudo() == true){
             fLocalComunicaServidor();
             //limparInputs();
+        }else{
+            $('#alertBootstrapErrorCria').show();
         }
         
     });
@@ -21,19 +23,16 @@ function verificarVazios() {
 
     if (senha == '') {
         $("#labelCriaSenha").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelCriaSenha').css({"color": ""})
     }
     if (confirmarSenha == '') {
         $("#labelConfirmaCriaSenha").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelConfirmaCriaSenha').css({"color": ""})
     }
     if (confirmarToken == '') {
         $("#labelConfirmaTokenRed").css({"color": "#FA5858"})
-        return false;
     } else {
         $('#labelConfirmaTokenRed').css({"color": ""})
     }
@@ -46,23 +45,7 @@ function limparInputs() {
     $('#confirmaTokenRed').val("");
 }
 
-function verificarTudo() {
-    var senha = $('#criaSenha').val();
-    var confirmarSenha = $('#confirmaCriaSenha').val();
-    var confirmarToken = $('#confirmaTokenRed').val();
-
-    if (senha == "" || confirmarSenha == "" || confirmarToken == ""){
-        return false
-    }else{
-        if (confirmarSenha() == true){
-            return true
-        }else{
-            return false
-        }
-    }
-}
-
-function confirmarSenha() {
+function conSenha() {
     var senha = $('#criaSenha').val();
     var confirmarSenha = $('#confirmaCriaSenha').val();
 
@@ -79,15 +62,27 @@ function confirmarSenha() {
     }
 }
 
+function verificarTudo() {
+    var senha = $('#criaSenha').val();
+    var confirmarSenha = $('#confirmaCriaSenha').val();
+    var confirmarToken = $('#confirmaTokenRed').val();
+
+    if (senha == "" || confirmarSenha == "" || confirmarToken == ""){
+        return false
+    }else{
+        if (conSenha() == true){
+            return true
+        }else{
+            return false
+        }
+    }
+}
+
 function hashMD5(){    
     var senha_hash_md5 = $.MD5($('#criaSenha').val());
     return(senha_hash_md5);
     
 }
-
-
-
-
 
 function fLocalComunicaServidor() {
     var senha_hash = hashMD5();
@@ -103,7 +98,7 @@ function fLocalComunicaServidor() {
             if (retorno == "s"){ 
                 alert("trocamos sua senha");
             }else{
-                alert("Usuário não cadastrado");
+                $('#alertBootstrapErrorCria').show();
             }
         }
     })
