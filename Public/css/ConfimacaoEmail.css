@@ -1,0 +1,40 @@
+body{
+    margin : 0px;
+    background-color: #ffcc00;
+}
+
+
+.div-colored{
+    background-color: #dee2ff;
+ }
+
+ .div-espace{
+    background-color: #ffcc00;
+    width: 100%;
+    height: 90px;
+    /*
+    float: left;
+    */
+    margin-bottom: 100px;
+    
+}
+
+.div-confirmacao{
+    margin: 0 auto;
+    width: 200px;
+    /*margin-top: 10%;*/
+}
+
+.formulario-button{
+    cursor: pointer;
+}
+.formulario-button:hover{
+    background-color: #CCCCCC;
+}
+.formulario-button{
+    width: 100%;
+    margin-top: 5%;
+}
+#divBotao{
+    margin-bottom: 3vh;
+}
