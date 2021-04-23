@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
+$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");
 
 
 $retorno["status"] = "";
@@ -46,10 +46,12 @@ if(isset($_SESSION["id"]) ==  false){
         print_r($_SESSION);
         
     }
-
 }
-
 echo json_encode($retorno);
 
+if ($retorno["status"] == "n"){
+    echo json_encode("n");
+}else{
+    echo json_encode("s");
+}
 ?>
-

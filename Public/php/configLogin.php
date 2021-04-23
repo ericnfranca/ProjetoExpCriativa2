@@ -2,7 +2,7 @@
 
 session_start();
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
+$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");
 
 $email = $_POST["email"];
 $senha = $_POST["senha"];
@@ -34,14 +34,12 @@ if (mysqli_num_rows ($resultado) > 0){
 
 //echo json_encode($retorno);
 
-
 if ($resultadoRow == false){
     echo json_encode("n");
 
 }else{
+    //echo json_encode($retorno);
     echo json_encode("s");
-    echo json_encode($retorno);
 }
-
 mysqli_close($conexao);
 ?>

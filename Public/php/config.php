@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
+$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");
 
 
 $nome_completo = $_POST["nome_completo"];
