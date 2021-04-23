@@ -2,7 +2,7 @@
 
 session_start();
 
-$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");
+$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
 
 $email = $_POST["email"];
 $senha = $_POST["senha"];
@@ -23,7 +23,7 @@ if (mysqli_num_rows ($resultado) > 0){
     $_SESSION["email"] = $registro["email"];
     $_SESSION["id"] = session_id();
     $_SESSION["inicio"] = time();
-    $_SESSION["tempo_limite"] = 15;
+    $_SESSION["tempo_limite"] = 30;
 
     
     $retorno["status"] = "s";

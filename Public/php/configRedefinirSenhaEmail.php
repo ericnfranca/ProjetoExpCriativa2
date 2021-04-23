@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");
+$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
 
 $email = $_POST["email"];
 $token = $_POST["token_red"];

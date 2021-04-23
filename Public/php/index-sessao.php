@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");
+$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
 
 
 $retorno["status"] = "";
@@ -11,12 +11,12 @@ $retorno["mensagem"]= "";
 if(isset($_SESSION["id"]) ==  false){
     $retorno["status"] = "n";
     $retorno["mensagem"]= "não existe sessao";
-    echo "nao existe id <br>";
-    print_r($_SESSION);
+   //  echo "nao existe id <br>";
+   //  print_r($_SESSION);
 }else{
     
-    echo "existe id <br>";
-    print_r($_SESSION);
+  //  echo "existe id <br>";
+  //  print_r($_SESSION);
     
     
     $segundos = time() - $_SESSION["inicio"];
@@ -30,8 +30,8 @@ if(isset($_SESSION["id"]) ==  false){
         unset($_SESSION["id"]);
         session_destroy();
 
-        echo "acabou o tempo <br>";
-        print_r($_SESSION);
+      //  echo "acabou o tempo <br>";
+     //   print_r($_SESSION);
         
         $retorno["status"] = "n";
         $retorno["mensagem"] = "a sessao expirou, logue novamente";
@@ -42,12 +42,12 @@ if(isset($_SESSION["id"]) ==  false){
         $retorno["mensagem"]= "sessao renovada";
         
         
-        echo "sessao renovada <br>";
-        print_r($_SESSION);
+     //   echo "sessao renovada <br>";
+     //   print_r($_SESSION);
         
     }
 }
-echo json_encode($retorno);
+//echo json_encode($retorno);
 
 if ($retorno["status"] == "n"){
     echo json_encode("n");

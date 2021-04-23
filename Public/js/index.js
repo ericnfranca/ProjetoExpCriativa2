@@ -10,7 +10,6 @@ function fLocalComunicaServidor() {
         url: "../public/php/index-sessao.php",
         
         success: function(retorno){
-            alert("ola");
             if(retorno == "n"){ 
                 window.location.href = '../Views/TelaLogin.html'
             }

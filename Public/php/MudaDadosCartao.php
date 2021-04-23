@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("localhost", "root", "guimateus@2002", "projetoexpcriativa2");//trocar senha
+$conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");//trocar senha
 
 $numero_cartao = $_POST["numero_cartao"];
 $validade_cartao = $_POST["validade_cartao"];
