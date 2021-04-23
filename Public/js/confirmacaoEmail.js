@@ -5,9 +5,12 @@ $(document).ready(function(){
         if (verificarVazios() != false){
             fLocalComunicaServidorEmail();   
             //$('#alertBootstrapSuccessEmail').show();
-        } 
-    });
+        }
     
+    });
+    $('#divBotao').click(function() {
+        window.location.href = "../views/TelaLogin.html"
+    });
 
 });
 

@@ -19,7 +19,7 @@ $(document).ready(function(){
          //limparInputs();
     })
     $('#bBotaoCriar').click(function() {
-        window.location.href = ".."
+        window.location.href = "../views/TelaCadastro.html"
     })
 });
 
@@ -86,8 +86,8 @@ function fLocalComunicaServidor() {
         },
         success: function(retorno) {
             if (retorno == "s"){ 
-                alert("Usuário Cadastrado");
-            }else{
+                window.location.href = '../Views/index.html'
+            }else if(retorno == "n"){
                 $('#alertBootstrapErrorLog').show();
             }
         }
