@@ -14,3 +14,28 @@ body{
 #tagNavBar {
     height: 84.75px;
 }
+
+
+/* Para deixar uma margem da lista de produtos na tela */
+.produtos {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card {
+    float: left;
+    margin: 5px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+.card-body button {
+    margin-top: 5px;
+}
+
+.card-img-top {
+    height: 375px;
+    width: 250px;
+}

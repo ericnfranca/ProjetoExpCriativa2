@@ -16,7 +16,6 @@ $(document).ready(function(){
         }else{
             $('#alertBootstrapErrorLog').show();
         }
-         //limparInputs();
     })
     $('#bBotaoCriar').click(function() {
         window.location.href = "../views/TelaCadastro.html"
@@ -74,6 +73,7 @@ function hashMD5(){
     return(senha_hash_md5);
     
 }
+
 function fLocalComunicaServidor() {
     var senha_hash = hashMD5();
     $.ajax({

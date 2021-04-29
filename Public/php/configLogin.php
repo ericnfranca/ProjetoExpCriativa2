@@ -34,10 +34,10 @@ if (mysqli_num_rows ($resultado) > 0){
 
 //echo json_encode($retorno);
 
-if ($resultadoRow == false){
+if ($resultadoRow == false) {
     echo json_encode("n");
 
-}else{
+} else {
     //echo json_encode($retorno);
     echo json_encode("s");
 }
