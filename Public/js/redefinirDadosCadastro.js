@@ -67,7 +67,7 @@ function fLocalComunicaServidor() {
         success: function(retorno) {
             if (retorno == "s"){ 
                 fLocalComunicaServidorEnviaEmail();
-                alert("enviamos email");
+                $('#alertBootstrapSuccessRed').show();
             }else{
                 $('#alertBootstrapErrorRed').show();
             }

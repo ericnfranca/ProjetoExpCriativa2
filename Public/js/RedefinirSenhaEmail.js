@@ -10,7 +10,7 @@ $(document).ready(function(){
         if(verificarVazios() != false){
             fLocalComunicaServidor();
         }else{
-            $('#alertBootstrapErrorRed').show();
+            $('#alertBootstrapErrorRse').show();
         }
         //limparInputs();
     })
@@ -67,9 +67,9 @@ function fLocalComunicaServidor() {
         success: function(retorno) {
             if (retorno == "s"){ 
                 fLocalComunicaServidorEnviaEmail();
-                alert("enviamos email");
+                $('#alertBootstrapSuccessRse').show()
             }else{
-                $('#alertBootstrapErrorRed').show();
+                $('#alertBootstrapErrorRse').show();
             }
         }
     })

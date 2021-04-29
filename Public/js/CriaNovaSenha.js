@@ -96,7 +96,7 @@ function fLocalComunicaServidor() {
         },
         success: function(retorno) {
             if (retorno == "s"){ 
-                alert("trocamos sua senha");
+                $('#alertBootstrapSuccessCria').show();
             }else{
                 $('#alertBootstrapErrorCria').show();
             }

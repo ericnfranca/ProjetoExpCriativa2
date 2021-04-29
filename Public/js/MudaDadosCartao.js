@@ -29,6 +29,8 @@ $(document).ready(function() {
         verificarVazios();
         if (verificarTudo() == true){
             fLocalComunicaServidor();
+        }else{
+            $('#alertBootstrapErrorMdc').show();
         }
         
     });
@@ -147,9 +149,9 @@ function fLocalComunicaServidor() {
         },
         success: function(retorno) {
             if (retorno == "s"){ 
-                alert("trocamos os dados do cartao");
+                $('#alertBootstrapSuccessMdc').show();
             }else{
-                alert("Usuário não cadastrado");
+                alert("#alertBootstrapErrorMdc").show();
             }
         }
     })

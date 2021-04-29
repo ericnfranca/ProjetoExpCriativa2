@@ -5,6 +5,8 @@ $(document).ready(function(){
         if (verificarVazios() != false){
             fLocalComunicaServidorEmail();   
             //$('#alertBootstrapSuccessEmail').show();
+        }else{
+            $('#alertBootstrapErrorEmail').show();
         }
     
     });
