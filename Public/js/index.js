@@ -93,7 +93,7 @@ function mostrarFilmes(param) {
 
     $(".btn-primary").click(function() {
         var id = $(this).attr("id_filme")
-        mostrarModal(param, id)      
+        mostrarModal(param, id)
     })
 
 }
@@ -126,9 +126,12 @@ function mostrarModal(param, id) {
         conteudo +=         '<p> Relevância : ' + array[id][5] + '</p>'
         conteudo +=         '<p> Sinopse: ' + array[id][6] + '</p>'
         conteudo +=         '<br>'
-        conteudo +=         '<button type="button" class="btn btn-primary">Assistir Filme</button>'
+        conteudo +=         '<div class="embed-responsive embed-responsive-16by9">'
+        conteudo +=             '<iframe class="embed-responsive-item" allowfullscreen="" src="' + array[id][8] + '"></iframe>'
+        conteudo +=         '</div>'
         conteudo +=     '</div>'
 
         $(".modal-body").append(conteudo)
     }
+
 }
