@@ -1,0 +1,50 @@
+body{
+    margin : 0px;
+    background-color: #ffcc00;
+}
+
+.bg-dark {
+    background-color: #343a40!important;
+}
+
+#navbar {
+    height: 100%
+}
+
+#tagNavBar {
+    height: 84.75px;
+}
+
+
+/* Para deixar uma margem da lista de produtos na tela */
+.produtos {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card {
+    float: left;
+    margin: 5px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+.card-body button {
+    margin-top: 5px;
+}
+
+.card-img-top {
+    height: 375px;
+    width: 250px;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+#btnMaisInfos {
+    display: block;
+    margin: 0 auto;
+}

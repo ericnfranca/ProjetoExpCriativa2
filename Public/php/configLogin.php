@@ -23,7 +23,7 @@ if (mysqli_num_rows ($resultado) > 0){
     $_SESSION["email"] = $registro["email"];
     $_SESSION["id"] = session_id();
     $_SESSION["inicio"] = time();
-    $_SESSION["tempo_limite"] = 30;
+    $_SESSION["tempo_limite"] = 10000;
 
     
     $retorno["status"] = "s";
