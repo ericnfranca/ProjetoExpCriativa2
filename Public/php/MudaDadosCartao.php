@@ -7,8 +7,6 @@ $codigo_seguranca = $_POST["codigo_seguranca"];
 $nome_titular = $_POST["nome_titular"];
 $token = $_POST["token_car"];
 
-//mysqli_query($conexao, "SELECT INTO pessoa(email, senha_hash_sha256) VALUES ('$email', '$senha')");
-
 $resultcar = mysqli_query($conexao, "SELECT * FROM pessoa WHERE token_car= '$token'");
 $resultcarRow = mysqli_num_rows ($resultcar);
 

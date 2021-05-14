@@ -4,9 +4,6 @@ $conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");//troc
 $email = $_POST["email"];
 $token = $_POST["token_car"];
 
-//mysqli_query($conexao, "SELECT INTO pessoa(email, senha_hash_sha256) VALUES ('$email', '$senha')");
-
-
 
 $resultcar = mysqli_query($conexao, "SELECT * FROM pessoa WHERE email= '$email'");
 $resultcarRow = mysqli_num_rows ($resultcar);

@@ -7,8 +7,6 @@ $conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
 $email = $_POST["email"];
 $senha = $_POST["senha"];
 
-//mysqli_query($conexao, "SELECT INTO pessoa(email, senha_hash_sha256) VALUES ('$email', '$senha')");
-
 $resultado = mysqli_query($conexao, "SELECT * FROM pessoa WHERE email= '$email' and senha_hash_sha256= '$senha' and validacao_email= 's'");
 $resultadoRow = mysqli_num_rows ($resultado);
 
@@ -22,6 +20,7 @@ if (mysqli_num_rows ($resultado) > 0){
 
     $_SESSION["email"] = $registro["email"];
     $_SESSION["id"] = session_id();
+    $_SESSION["idUsuario"] = $registro["id"];
     $_SESSION["inicio"] = time();
     $_SESSION["tempo_limite"] = 10000;
 
@@ -29,16 +28,11 @@ if (mysqli_num_rows ($resultado) > 0){
     $retorno["status"] = "s";
     $retorno["mensagem"] = "usuario cadastrado";
 }
-//echo("oi");
-//print_r($_SESSION);
-
-//echo json_encode($retorno);
 
 if ($resultadoRow == false) {
     echo json_encode("n");
 
 } else {
-    //echo json_encode($retorno);
     echo json_encode("s");
 }
 mysqli_close($conexao);

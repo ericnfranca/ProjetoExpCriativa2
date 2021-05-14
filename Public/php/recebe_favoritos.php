@@ -4,7 +4,9 @@ session_start();
 
 $conexao = mysqli_connect("localhost", "root", "", "projetoexpcriativa2");
 
-$sql = "SELECT * FROM filmes";
+$usuarioId =  $_SESSION["idUsuario"];
+
+$sql = "select * from filmes fi inner join favoritos fv on fi.id = fv.id_filme where fv.id_usuario = $usuarioId";
 
 $result = mysqli_query($conexao,$sql);
 

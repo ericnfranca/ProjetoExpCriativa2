@@ -1,9 +1,43 @@
 $(document).ready(function() {
     fLocalComunicaServidor();
+    RecebeUsuarioId();
     //EnviarFilmesServidor();
     RecebeFilmesServidor();
+
+    $("#btnFavoritos").click(function() {
+        var id = parseInt(idFilme) + 1;
+        GravarFavoritos(idUsuario, id)
+    })
+
 });
 
+var idUsuario = null;
+var idFilme = null;
+
+function RecebeUsuarioId() {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../Public/php/usuarioId.php",
+        success: function(retorno) {
+           idUsuario = retorno;
+        }
+    })
+}
+
+function GravarFavoritos(id_usuario, id_filme) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../Public/php/gravar_favoritos.php",
+        data: {
+            id_usuario: id_usuario,
+            id_filme : id_filme,
+        },
+        success: function(retorno) {
+        }
+    })
+}
 
 function fLocalComunicaServidor() {
     $.ajax({
@@ -93,6 +127,7 @@ function mostrarFilmes(param) {
 
     $(".btn-primary").click(function() {
         var id = $(this).attr("id_filme")
+        idFilme = id;
         mostrarModal(param, id)
     })
 
