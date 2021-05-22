@@ -22,6 +22,16 @@ body{
     margin-right: 10%;
 }
 
+.produtosSeries {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.containerFilmes{
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
 .card {
     float: left;
     margin: 5px;
@@ -45,6 +55,11 @@ h5 {
 }
 
 #btnMaisInfos {
+    display: block;
+    margin: 0 auto;
+}
+
+#btnRemove {
     display: block;
     margin: 0 auto;
 }

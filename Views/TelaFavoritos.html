@@ -43,7 +43,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -52,7 +52,6 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="redefinirDadosCartao.html">Redefinir cartao</a></li>
-              <li><a class="dropdown-item active" href="TelaFavoritos.html">Ver favoritos</a></li>
             </ul>
           </li>
         </ul>
@@ -63,11 +62,21 @@
       </div>
     </div>
   </nav>
-</body>
-
-<div class="produtos"></div>
-
-<!-- Modal -->
+  <div class="container containerFilmes">
+    <div class="row">
+        <div class="col">
+            <h2>Filmes favoritos</h2>
+            <div class="produtos"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>Series favoritas</h2>
+            <div class="produtosSeries"></div>
+        </div>
+    </div>
+  </div>
+  <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -78,10 +87,10 @@
         <!-- aqui vai pegar do js -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose1">Close</button>
       </div>
     </div>
   </div>
 </div>
-
+</body>
 </html>
