@@ -164,11 +164,9 @@ function verificarVazios() {
     var cpf = $('#cpf').val();
 
     if (nomeCompleto == '') {
-        //$('#nome').addClass("campo-login-erro")
         $("#labelNomeCompleto").css({"color": "#FA5858"})
     } else {
         $("#labelNomeCompleto").css({"color": ""})
-        //$('#nome').removeClass("campo-login-erro")
     }
     if (dataNascimento == '') {
         $("#labelDataNascimento").css({"color": "#FA5858"})

@@ -4,17 +4,27 @@ $(document).ready(function() {
     //EnviarFilmesServidor();
     RecebeSeriesServidor();
     RecebeFilmesServidor();
-
+    
     $("#btnClose").click(function() {
         idFilme = null;
         idSerie = null;
     })
-    
-    $("#btnFavoritos").click(function() {
-        if(idSerie == null){
+
+    $("#btnFavoritosSeries").click(function() {
+        if (idSerie == null) {
             var id = parseInt(idFilme) + 1;
             GravarFavoritos(idPessoa, id)
-        }else{
+        } else {
+            var id = parseInt(idSerie) + 1;
+            GravarFavoritosSerie(idPessoa, id)
+        }
+    })
+    
+    $("#btnFavoritos").click(function() {
+        if (idSerie == null) {
+            var id = parseInt(idFilme) + 1;
+            GravarFavoritos(idPessoa, id)
+        } else {
             var id = parseInt(idSerie) + 1;
             GravarFavoritosSerie(idPessoa, id)
         }
@@ -160,7 +170,6 @@ function mostrarFilmes(param) {
 
 
 function mostrarModal(param, id) {
-    console.log(id)
     var auxiliar = JSON.parse(param);
 
     var array = auxiliar.map(function (obj) {  return [obj.ano, obj.duracao, obj.genero, obj.id, obj.imagem, obj.relevancia, obj.sinopse, obj.titulo, obj.trailer]})
@@ -226,7 +235,7 @@ function mostrarSeries(param) {
         conteudo +=         '<p class="card-text"> Gênero: ' + array[i][2] + '</p>'
         conteudo +=         '<p class="card-text"> Ano: ' + array[i][0] + '</p>'
         conteudo +=         '<br>'
-        conteudo +=         '<button type="button" class="btn btn-primary" id="btnMaisInfos" data-toggle="modal" id_serie="' + i + '" data-target="#exampleModalCenter">Mais Informações</button>'
+        conteudo +=         '<button type="button" class="btn btn-primary" id="btnMaisInfos" data-toggle="modal" id_serie="' + i + '" data-target="#exampleModalCenterSeries">Mais Informações</button>'
         conteudo +=     '</div>'
         conteudo += '</div>'
 
@@ -241,24 +250,23 @@ function mostrarSeries(param) {
 }
 
 function mostrarModalSeries(param, id) {
-    console.log(id)
     var auxiliar = JSON.parse(param);
 
     var array = auxiliar.map(function (obj) {  return [obj.ano, obj.temporada, obj.genero, obj.id, obj.imagem, obj.relevancia, obj.sinopse, obj.titulo, obj.trailer]})
 
-    $(".modal-header").html("")
+    $(".modal-header#headerSeries").html("")
     for (var i = 0; i < 1; i++) {
         var conteudo = ""
 
-        conteudo += '<h5 class="modal-title" id="exampleModalLabel">' + array[id][7] + '</h5>'
+        conteudo += '<h5 class="modal-title" id="exampleModalLabelSeries">' + array[id][7] + '</h5>'
         conteudo += '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
         conteudo +=     '<span aria-hidden="true">&times;</span></button>'
         conteudo += '</button>'
     
-        $(".modal-header").append(conteudo)
+        $(".modal-header#headerSeries").append(conteudo)
     }
 
-    $(".modal-body").html("")
+    $(".modal-body#bodySeries").html("")
     for (var i = 0; i < 1; i++) {
         var conteudo = ""
 
@@ -272,7 +280,7 @@ function mostrarModalSeries(param, id) {
         conteudo +=         '</div>'
         conteudo +=     '</div>'
 
-        $(".modal-body").append(conteudo)
+        $(".modal-body#bodySeries").append(conteudo)
     }
 
 }
