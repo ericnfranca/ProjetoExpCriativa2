@@ -50,12 +50,56 @@ function ColocarMascara() {
     $("#anoSerie").inputmask("9999");
 }
 
+var arquivo;
+var formData;
+
+function teste(){
+    $("#upload-image-filmes").change(function(){
+        arquivo = document.getElementById("upload-image-filmes").files[0];
+
+        formData = new FormData();
+        formData.append("file", arquivo);
+
+    });
+    $.ajax({
+
+        url: "../Public/php/envia_imagem.php",
+        type:"post",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(retorno){
+            alert("imagem salva!!!");
+        }
+    });
+
+}
+
+
+
+
+
 function EnviarFilmesServidor() {
     var dur = $('#duracao').inputmask('unmaskedvalue');
     dur = dur.toString();
 
     var year = $('#ano').inputmask('unmaskedvalue');
     year = parseInt(year);
+
+  
+    
+    
+    
+    var fullPath = document.getElementById('upload-image-filmes').value;
+    if (fullPath) {
+        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        var filename = fullPath.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+    }
+    //alert(filename);
+    }
 
     $.ajax({
         type: "POST",
@@ -70,21 +114,44 @@ function EnviarFilmesServidor() {
             relevancia: $('#relevancia').val(),
             sinopse: $('#sinopse').val(),
             trailer: $('#trailer').val(),
-            imagem: "allahu akbar",
+            imagem: filename,
         },
         success: function(retorno) {
             console.log("deu boa");
         }
-    })
+    });
+
+    teste();
+
+   
+
 }
 
 
 function EnviarSeriesServidor() {
+
+    $("#upload-image-series").change(function(){
+        arquivo = document.getElementById("upload-image-series").files[0];
+
+        formData = new FormData();
+        formData.append("file", arquivo);
+    });
+    
     var year = $('#anoSerie').inputmask('unmaskedvalue');
     year = parseInt(year);
 
     var temp = $('#temporada').inputmask('unmaskedvalue');
     temp = parseInt(temp);
+
+    var fullPath = document.getElementById('upload-image-series').value;
+    if (fullPath) {
+        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        var filename = fullPath.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+    }
+    alert(filename);
+    }
 
     $.ajax({
         type: "POST",
@@ -98,12 +165,26 @@ function EnviarSeriesServidor() {
             relevancia: $('#relevanciaSerie').val(),
             sinopse: $('#sinopseSerie').val(),
             trailer: $('#trailerSerie').val(),
-            imagem: "allahu akbar",
+            imagem: filename,
         },
         success: function(retorno) {
+
             
         }
     })
+
+    $.ajax({
+
+        url: "../Public/php/envia_imagem.php",
+        type:"post",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(retorno){
+
+        }
+    });
 }
 
 function verificarVaziosFilme() {

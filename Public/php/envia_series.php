@@ -16,8 +16,12 @@ $imagem = $_POST["imagem"];
 mysqli_query($conexao, "INSERT INTO series(titulo, genero, ano, temporada, relevancia, sinopse, trailer, imagem) VALUES 
                 ('$titulo', '$genero', '$ano', '$temporada', '$relevancia', '$sinopse', '$trailer', '$imagem')");
 
-mysqli_close($conexao);
 
+
+
+
+
+mysqli_close($conexao);
 
 
 ?>

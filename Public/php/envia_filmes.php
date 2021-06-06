@@ -16,7 +16,14 @@ $imagem = $_POST["imagem"];
 mysqli_query($conexao, "INSERT INTO filmes(titulo, genero, ano, duracao, relevancia, sinopse, trailer, imagem) VALUES 
                 ('$titulo', '$genero', '$ano', '$duracao', '$relevancia', '$sinopse', '$trailer', '$imagem')");
 
+
+
+
+
 mysqli_close($conexao);
+
+
+
 
 
 
