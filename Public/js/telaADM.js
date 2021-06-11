@@ -1,5 +1,7 @@
 $(document).ready(function(){
     ColocarMascara();
+    redimensionaImagemFilmes();
+    redimensionaImagemSeries();
     $('#btnAddFilme').click(function() {
         filme = true;
         console.log(filme)
@@ -53,7 +55,7 @@ function ColocarMascara() {
 var arquivo;
 var formData;
 
-function teste(){
+function redimensionaImagemFilmes(){
     $("#upload-image-filmes").change(function(){
         arquivo = document.getElementById("upload-image-filmes").files[0];
 
@@ -61,24 +63,9 @@ function teste(){
         formData.append("file", arquivo);
 
     });
-    $.ajax({
-
-        url: "../Public/php/envia_imagem.php",
-        type:"post",
-        data: formData,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: function(retorno){
-            alert("imagem salva!!!");
-        }
-    });
+    
 
 }
-
-
-
-
 
 function EnviarFilmesServidor() {
     var dur = $('#duracao').inputmask('unmaskedvalue');
@@ -88,9 +75,7 @@ function EnviarFilmesServidor() {
     year = parseInt(year);
 
   
-    
-    
-    
+        
     var fullPath = document.getElementById('upload-image-filmes').value;
     if (fullPath) {
         var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
@@ -121,21 +106,35 @@ function EnviarFilmesServidor() {
         }
     });
 
-    teste();
+    $.ajax({
+
+        url: "../Public/php/envia_imagem.php",
+        type:"post",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(retorno){
+            alert("imagem salva!!!");
+        }
+    });
+    
 
    
 
 }
-
-
-function EnviarSeriesServidor() {
-
+function redimensionaImagemSeries() {
     $("#upload-image-series").change(function(){
         arquivo = document.getElementById("upload-image-series").files[0];
 
         formData = new FormData();
         formData.append("file", arquivo);
     });
+}
+
+function EnviarSeriesServidor() {
+
+    
     
     var year = $('#anoSerie').inputmask('unmaskedvalue');
     year = parseInt(year);

@@ -39,8 +39,8 @@ $arquivo_nome = $_FILES["file"]["name"];
 
 		imagecopyresampled($imagem_redimensionada, $imagem_temp, 0, 0, 0, 0, $largura_nova, $altura_nova, $largura_original, $altura_original);
 
-
-		imagepng($imagem_redimensionada, "../img/pepino.png");
+		echo $arquivo_nome;
+		imagepng($imagem_redimensionada, "../img/$arquivo_nome");
 }
 
 ?>

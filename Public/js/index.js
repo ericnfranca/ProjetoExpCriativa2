@@ -256,15 +256,16 @@ function mostrarModalSeries(param, id) {
 
     $(".modal-header#headerSeries").html("")
     for (var i = 0; i < 1; i++) {
+        
         var conteudo = ""
 
         conteudo += '<h5 class="modal-title" id="exampleModalLabelSeries">' + array[id][7] + '</h5>'
         conteudo += '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
         conteudo +=     '<span aria-hidden="true">&times;</span></button>'
         conteudo += '</button>'
-    
         $(".modal-header#headerSeries").append(conteudo)
     }
+    
 
     $(".modal-body#bodySeries").html("")
     for (var i = 0; i < 1; i++) {
