@@ -1,9 +1,9 @@
 $(document).ready(function() {
     fLocalComunicaServidor();
     RecebeUsuarioId();
-    //EnviarFilmesServidor();
     RecebeSeriesServidor();
     RecebeFilmesServidor();
+
     
     $("#btnClose").click(function() {
         idFilme = null;
@@ -29,6 +29,13 @@ $(document).ready(function() {
             GravarFavoritosSerie(idPessoa, id)
         }
     })
+
+    $("#btnPesquisa").click(function() {
+        var pesquisa = $("#pesquisa").val();
+        PesquisaFilmes(pesquisa);
+        PesquisaSeries(pesquisa);
+    })
+
 });
 
 var idPessoa = null;
@@ -42,6 +49,36 @@ function RecebeUsuarioId() {
         url: "../Public/php/usuarioId.php",
         success: function(retorno) {
            idPessoa = retorno;
+        }
+    })
+}
+
+function PesquisaSeries(titulo) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../Public/php/filtro-pesquisa-series.php",
+        data: {
+            titulo : titulo,
+        },
+        success: function(retorno) {
+            mostrarSeries(JSON.stringify(retorno))
+        }
+    })
+}
+
+function PesquisaFilmes(titulo) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../Public/php/filtro-pesquisa-filmes.php",
+        data: {
+            titulo : titulo,
+        },
+        success: function(retorno) {
+            mostrarFilmes(JSON.stringify(retorno))
+        },
+        error: function(jq,status,message) {
         }
     })
 }
@@ -87,40 +124,19 @@ function fLocalComunicaServidor() {
     })
 }
 
-function EnviarFilmesServidor() {
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "../Public/php/envia_filmes.php",
-        data: {
-            // titulo: "Velozes e Furiosos",
-            // genero: "Aventura",
-            // ano: "1995",
-            // duracao: "02:30:10",
-            // relevancia: "top",
-            // sinopse: "lorem ipsum",
-            // trailer: "lorem ipsum",
-            // imagem: "velozesEFuriosos.jpg",
-        },
-        success: function(retorno) {
-
-        }
-    })
-}
-
-function RecebeFilmesServidorModal() {
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "../Public/php/recebe_filmes.php",
-        data: {
-            titulo: "Velozes e Furiosos",
-        },
-        success: function(retorno) {
-           //mostrarModal(JSON.stringify(retorno));
-        }
-    })
-}
+// function RecebeFilmesServidorModal() {
+//     $.ajax({
+//         type: "POST",
+//         dataType: "json",
+//         url: "../Public/php/recebe_filmes.php",
+//         data: {
+//             titulo: "Velozes e Furiosos",
+//         },
+//         success: function(retorno) {
+//            //mostrarModal(JSON.stringify(retorno));
+//         }
+//     })
+// }
 
 function RecebeFilmesServidor() {
     $.ajax({
