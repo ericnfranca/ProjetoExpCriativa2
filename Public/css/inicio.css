@@ -1,0 +1,77 @@
+body{
+    margin : 0px;
+    background-image: url(../img/filmes-background-1.jpg);
+}
+
+.campo-titulo{
+    margin: 0px;
+    font-style: oblique;
+    font-size: large;
+    color: black;
+    text-align: center;
+}
+.div-2-Menu{
+    background-image: url(../img/filmes-background-1.jpg);
+    width: 100%;
+    height: 90px;
+    /*
+    float: left;
+    */
+    margin-bottom: 100px;
+    
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+.card-body button {
+    margin-top: 5px;
+}
+
+.card-img-top {
+    height: 286px;
+    width: 286px;
+}
+
+/* Não sei o motivo, mas deu certo */
+.btn-primary {
+    height: 38px;
+    width: 179.83px;
+}
+
+.btn-success {
+    height: 38px;
+    width: 179.83px;
+}
+
+.div-login{
+    margin: 0 auto;
+    width: 200px;
+    /*margin-top: 10%;*/
+}
+
+.formulario-button{
+    cursor: pointer;
+}
+.formulario-button:hover{
+    background-color: #CCCCCC;
+}
+.formulario-button{
+    width: 100%;
+    margin-top: 5%;
+}
+.campo-login-erro{
+    color: solid 1px #FA5858;
+}
+#divBotao{
+    margin-bottom: 3vh;
+}
+.div-colored{
+    background-color: #dee2ff;
+ }
+ .div-login h1{
+    text-align: center;
+    padding-top: 2px;
+    margin-bottom: 0px;
+}
