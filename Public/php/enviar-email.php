@@ -37,7 +37,7 @@ $mail->SMTPSecure = 'ssl';
 $mail->Host = 'smtp.gmail.com'; 
 $mail->Port = 465; 
 $mail->Username = 'nextfilmes.exp'; 
-$mail->Password = 'nextfilmes123456';
+$mail->Password = 'avolnvjihckylnwh';
 $mail->SetFrom('nextfilmes.exp@gmail.com', 'NextFilmes');
 $mail->addAddress($email,'');
 $mail->Subject = $tituloEmail;

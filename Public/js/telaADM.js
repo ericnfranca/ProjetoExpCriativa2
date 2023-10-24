@@ -80,10 +80,9 @@ function EnviarFilmesServidor() {
     if (fullPath) {
         var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
         var filename = fullPath.substring(startIndex);
-    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-        filename = filename.substring(1);
-    }
-    //alert(filename);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+            filename = filename.substring(1);
+        }
     }
 
     $.ajax({
@@ -102,7 +101,6 @@ function EnviarFilmesServidor() {
             imagem: filename,
         },
         success: function(retorno) {
-            console.log("deu boa");
         }
     });
 
@@ -115,7 +113,6 @@ function EnviarFilmesServidor() {
         cache: false,
         processData: false,
         success: function(retorno){
-            alert("imagem salva!!!");
         }
     });
     
